@@ -6,23 +6,24 @@ import java.util.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Species foodMiura = new Species("Josera",200);
-    Animal miura = new Animal(1,"Miura", "Cat", 5, foodMiura);
+        Species foodMiura = new Species("Cat",200);
+    Animal miura = new Animal(1,"Miura",  5, foodMiura);
 
 
-    Species foodBeily = new Species("Josera Dogs",500);
-    Animal beily = new Animal(2,"Beily", "Dog", 2,  foodBeily);
-    Species foodBarsik = new Species("MixCat Oldcats",300);
-    Animal barsik = new Animal(3,"Barsik", "Cat", 8, foodBarsik);
-    Species foodMolly = new Species("Josera Dogs",430);
-    Animal molly = new Animal(4,"Molly", "Dog", 12, foodMolly);
-    Species foodDexter = new Species("Josera OldCats",250);
-    Animal dexter = new Animal(5,"Dexter", "Cat", 15, foodDexter);
-    Species foodTom = new Species("MixCat",200);
-    Animal tom = new Animal(6,"Tom", "Cat", 10, foodTom);
+    Species foodBeily = new Species("Dog",500);
+    Animal beily = new Animal(2,"Beily", 2,  foodBeily);
+    Species foodBarsik = new Species("Cat",300);
+    Animal barsik = new Animal(3,"Barsik", 8, foodBarsik);
+    Species foodMolly = new Species("Dog",430);
+    Animal molly = new Animal(4,"Molly", 12, foodMolly);
+    Species foodDexter = new Species("Cat",250);
+    Animal dexter = new Animal(5,"Dexter",5, foodDexter);
+    Species foodTom = new Species("Cat",200);
+    Animal tom = new Animal(6,"Tom",10, foodTom);
     System.out.println(miura.equals(beily));
         System.out.println(miura);
         System.out.println(beily);
+        System.out.println("----------");
 
         Set<Animal> setAnimals = new HashSet<>();
         setAnimals.add(miura);
@@ -40,17 +41,21 @@ public class Main {
         Owner sonja = new Owner("Sonja", 45, "Bardowick", cats);
         System.out.println("Owner N1");
         System.out.println(sonja);
+
         List<Animal> cat = new ArrayList<>();
         cat.add(miura);
         Owner yuliia = new Owner("Yulia", 40, "Lüneburg", cat);
         System.out.println("Owner N2");
         System.out.println(yuliia);
+
         List<Animal> dogs = new ArrayList<>();
         dogs.add(beily);
         dogs.add(molly);
         Owner robert = new Owner("Robert", 42, "Rottorf (Winsen Luhe)", dogs);
         System.out.println("Owner N3");
         System.out.println(robert);
+
+        Owner someone = new Owner("Someone", 2, "Somebody", cat);
 
         System.out.println("---------");
         foodMiura = foodMolly.withFoodProDay(180);
@@ -61,7 +66,7 @@ public class Main {
 
         cat.clear();
         cat.add(miura);
-        yuliia = new Owner("Yulia", 45, "Bardowick", cat);
+        yuliia = yuliia.withAnimals(cat);
         System.out.println(yuliia);
 
         System.out.println("------------------");
